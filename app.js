@@ -8,3 +8,7 @@ if ("serviceWorker" in navigator) {
       console.log("Service Worker реєстрація не вдалася:", error);
     });
 }
+console.log("Initially " + (window.navigator.onLine ? "on" : "off") + "line");
+
+window.addEventListener("online", () => console.log("Became online"));
+window.addEventListener("offline", () => console.log("Became offline"));
