@@ -13,20 +13,5 @@ console.log("Initially " + (window.navigator.onLine ? "on" : "off") + "line");
 window.addEventListener("online", () => console.log("Became online"));
 window.addEventListener("offline", () => console.log("Became offline"));
 
-var a = 5;
-window.aa = 10;
-
-const cardOnline = document.querySelector(".card.online");
-console.log(cardOnline);
-const cardOffline = document.querySelector(".card.offline");
-console.log(cardOffline);
-function showConnectionState() {
-  if (window.navigator.onLine) {
-    cardOnline.classList.add("active");
-    cardOffline.classList.remove("active");
-  } else {
-    cardOffline.classList.add("active");
-    cardOnline.classList.remove("active");
-  }
-}
-showConnectionState();
+var a=5;
+window.aa=10;

@@ -17,15 +17,26 @@
           "GRAD" 0,
           "opsz" 48;
       }
+      .card{
+display:none;
+width:15rem;
+height:5rem;
+background:#999;
+border-radius:1rem;
+      }
+      .active{
+display:block;
+      }
     </style>
   </head>
   <body>
-    <h1>Мій PWA</h1>
-    <span class="material-symbols-outlined"> close </span>
-   <span class="material-symbols-outlined">
-wifi
-</span>
-    <span class="material-symbols-outlined"> wifi_off </span>
+      <h1>Мій PWA</h1> 
+    <div class="card online">
+    <span class="material-symbols-outlined"> wifi </span> 
+    </div>
+    <div class="card active offline">
+         <span class="material-symbols-outlined"> wifi_off </span> 
+    </div> 
     <script src="app.js"></script>
   </body>
 </html>
