@@ -10,6 +10,12 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
     <style>
+      body {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       .material-symbols-outlined {
         font-variation-settings:
           "FILL" 0,
@@ -39,6 +45,75 @@
       .card.offline .icon {
         color: red;
       }
+      .container {
+        width: 15rem;
+        height: 15rem;
+        -webkit-perspective: 1000;
+        -webkit-backface-visibility: hidden;
+        background: #fff;
+      }
+
+      .pulse-button {
+        position: relative;
+        top: 25%;
+        left: 50%;
+        margin-left: -50px;
+        display: block;
+        width: 100px;
+        height: 100px;
+        font-size: 1.3em;
+        font-weight: light;
+        font-family: "Trebuchet MS", sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 100px;
+        letter-spacing: -1px;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        background: #5a99d4;
+        cursor: pointer;
+        box-shadow: 0 0 0 0 rgba(90, 153, 212, 0.5);
+        -webkit-animation: pulse 1.5s infinite;
+      }
+
+      .pulse-button:hover {
+        -webkit-animation: none;
+      }
+
+      @-webkit-keyframes pulse {
+        0% {
+          -moz-transform: scale(0.9);
+          -ms-transform: scale(0.9);
+          -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+        }
+        70% {
+          -moz-transform: scale(1);
+          -ms-transform: scale(1);
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+        }
+        100% {
+          -moz-transform: scale(0.9);
+          -ms-transform: scale(0.9);
+          -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+          box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+        }
+      }
+      .downolading {
+        width: 15rem;
+      }
+      .downolading img {
+        width: 100%;
+      }
+      .result{
+font-size: 2rem;
+    color: green;
+    font-weight: 700;
+      }
     </style>
   </head>
   <body>
@@ -51,6 +126,13 @@
       <span class="icon material-symbols-outlined"> wifi_off </span>
       <div class="title">Offline</div>
     </div>
+    <div class="container">
+      <span class="pulse-button">pulse</span>
+    </div>
+    <div class="downolading">
+      <img src="./assets/animation.gif" alt="Animation" />
+    </div>
+    <div class="result">Speed: 2140.48 kbps / 2.09 Mbps</div>
     <script src="app.js"></script>
   </body>
 </html>
