@@ -30,3 +30,48 @@ function showConnectionState() {
   }
 }
 showConnectionState();
+
+// Функція для виміру швидкості
+function measureDownloadSpeed(callback) {
+  // URL файлу для завантаження (змініть на свою URL)
+  const downloadUrl = "https://nedvlor.github.io/pwa/Happy.mp3";
+
+  // Засікаємо початковий час
+  const startTime = window.performance.now();
+
+  // Запит для завантаження файлу
+  fetch(downloadUrl)
+    .then((response) => {
+      return response.blob();
+    })
+    .then((blob) => {
+      // Засікаємо кінцевий час
+      const endTime = window.performance.now();
+
+      clearInterval(timer);
+
+      // Обчислюємо тривалість завантаження
+      const duration = (endTime - startTime) / 1000; // переводимо в секунди
+
+      // Обчислюємо швидкість
+      const bitsLoaded = blob.size * 8;
+      const speedBps = bitsLoaded / duration;
+      const speedKbps = (speedBps / 1024).toFixed(2);
+      const speedMbps = (speedKbps / 1024).toFixed(2);
+
+      // Викликаємо callback з обчисленими значеннями
+      callback(speedKbps, speedMbps);
+    })
+    .catch((error) => {
+      console.error("Error during download:", error);
+    });
+}
+
+// Використовуємо функцію
+measureDownloadSpeed((speedKbps, speedMbps) => {
+  console.log(`Speed: ${speedKbps} kbps / ${speedMbps} Mbps`);
+});
+
+const timer = setInterval(() => {
+  console.log("downolading");
+}, 1000);
