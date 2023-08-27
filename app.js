@@ -16,11 +16,11 @@ window.addEventListener("offline", () => console.log("Became offline"));
 var a = 5;
 window.aa = 10;
 
-const cardOnline = document.querySelector(".card.online");
-console.log(cardOnline);
-const cardOffline = document.querySelector(".card.offline");
-console.log(cardOffline);
 function showConnectionState() {
+  const cardOnline = document.querySelector(".card.online");
+  console.log(cardOnline);
+  const cardOffline = document.querySelector(".card.offline");
+  console.log(cardOffline);
   if (window.navigator.onLine) {
     cardOnline.classList.add("active");
     cardOffline.classList.remove("active");
@@ -29,7 +29,10 @@ function showConnectionState() {
     cardOnline.classList.remove("active");
   }
 }
-showConnectionState();
+// Перевірка, що сторінка завантажена
+window.addEventListener("load", function () {
+  // showConnectionState();
+});
 
 // Функція для виміру швидкості
 function measureDownloadSpeed(callback) {
@@ -67,11 +70,22 @@ function measureDownloadSpeed(callback) {
     });
 }
 
-// Використовуємо функцію
-measureDownloadSpeed((speedKbps, speedMbps) => {
-  console.log(`Speed: ${speedKbps} kbps / ${speedMbps} Mbps`);
-});
-
 const timer = setInterval(() => {
   console.log("downolading");
 }, 1000);
+function start() {
+  console.log("Start");
+  const button = document.querySelector(".container");
+  const downolading = document.querySelector(".downolading");
+  const result = document.querySelector(".result");
+
+  // Використовуємо функцію
+  measureDownloadSpeed((speedKbps, speedMbps) => {
+    console.log(`Speed: ${speedKbps} kbps / ${speedMbps} Mbps`);
+    downolading.style.display = "none";
+    result.style.display = "block";
+    result.innerHTML = `Speed: ${speedKbps} kbps / ${speedMbps} Mbps`;
+  });
+  button.style.display = "none";
+  downolading.style.display = "block";
+}

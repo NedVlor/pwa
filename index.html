@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple PWA</title>
+    <title>PWA network testing</title>
     <link rel="manifest" href="./manifest.json" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
     <style>
       body {
         text-align: center;
@@ -16,6 +20,7 @@
         flex-direction: column;
         align-items: center;
         background: #17192c;
+        font-family: 'Bai Jamjuree', sans-serif;
       }
       .material-symbols-outlined {
         font-variation-settings:
@@ -28,7 +33,7 @@
         display: none;
         width: 15rem;
         height: 5rem;
-        background: #999;
+        background: #edeef7;
         border-radius: 1rem;
         justify-content: space-around;
         align-items: center;
@@ -51,7 +56,6 @@
         height: 15rem;
         -webkit-perspective: 1000;
         -webkit-backface-visibility: hidden;
-        background: #fff;
       }
 
       .pulse-button {
@@ -106,19 +110,30 @@
       }
       .downolading {
         width: 15rem;
+        display:none;
+            margin-top: 2rem;
       }
       .downolading img {
         width: 100%;
+        border-radius: 9rem;
       }
       .result {
         font-size: 2rem;
         color: green;
         font-weight: 700;
+        color: #00d700;
+        display:none;
+        margin-top:2rem;
+      }
+      h1{
+    color: #39d939;
+    font-size: 2.5rem;
       }
     </style>
+ <script src="app.js"></script>
   </head>
   <body>
-    <h1>Мій PWA</h1>
+    <h1>PWA network testing</h1>
     <div class="card online">
       <span class="icon material-symbols-outlined"> wifi </span>
       <div class="title">Online</div>
@@ -128,12 +143,15 @@
       <div class="title">Offline</div>
     </div>
     <div class="container">
-      <span class="pulse-button">pulse</span>
+      <span class="pulse-button" onclick="start()">start</span>
     </div>
-    <div class="downolading">
+    <div class="downolading"> <div class "spawn">
       <img src="./assets/animation.gif" alt="Animation" />
     </div>
+    </div>
     <div class="result">Speed: 2140.48 kbps / 2.09 Mbps</div>
-    <script src="app.js"></script>
+    <script>
+        setTimeout(()=>{showConnectionState()}, 1000)
+    </script>
   </body>
 </html>
